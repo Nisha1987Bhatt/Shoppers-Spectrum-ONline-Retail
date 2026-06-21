@@ -7,7 +7,11 @@ import pandas as pd
 kmeans_model = joblib.load('kmeans_model.joblib')
 scaler = joblib.load('scaler.joblib')
 cluster_labels = joblib.load('cluster_labels.joblib')
-product_similarity_df = joblib.load('product_similarity.joblib')
+part1 = joblib.load('product_similarity_part1.joblib')
+part2 = joblib.load('product_similarity_part2.joblib')
+
+# Combine them back together into the full dataframe
+product_similarity_df = pd.concat([part1, part2])
 
 # ── App Title ────────────────────────────────────────────────
 st.title("🛒 Shopper Spectrum")
